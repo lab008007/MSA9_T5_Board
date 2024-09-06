@@ -28,7 +28,7 @@ public class BoardServiceImpl implements BoardService {
 		return board;
 	}
 
-	@Override
+	
 	public int insert(Board board) {
 		// 게시글 정보를 전달하여 DB 에 데이터 등록 요청
 		int result = boardDAO.insert(board);

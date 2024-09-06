@@ -19,7 +19,10 @@ public interface BoardService {
 	// 게시글 조회
 	Board select(int no);
 	// 게시글 등록
-	int insert(Board board);
+	static int insert(Board board) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	// 게시글 수정
 	int update(Board board);
 	// 게시글 삭제

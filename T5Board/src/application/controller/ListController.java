@@ -3,6 +3,7 @@ package application.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.Main;
 import application.DTO.Board;
 import application.Service.BoardService;
 import application.Service.BoardServiceImpl;
@@ -64,8 +65,13 @@ public class ListController {
     }
 
     @FXML
-    void toInsert(ActionEvent event) {
-
+    void toInsert(ActionEvent event) throws Exception{
+    	Main.setRoot("UI/Create");
+    }
+    
+    @FXML
+    void toMain(ActionEvent event) throws Exception {
+    	Main.setRoot("UI/Main");
     }
 
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CreateController">
+   <children>
+      <Label contentDisplay="CENTER" layoutX="385.0" layoutY="68.0" text="글  쓰  기" textFill="#103fbf">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnCreate" layoutX="590.0" layoutY="527.0" mnemonicParsing="false" onAction="#toCreate" prefHeight="60.0" prefWidth="245.0" text="글 쓰 기" textFill="#103fbf">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnList" layoutX="95.0" layoutY="527.0" mnemonicParsing="false" onAction="#toList" prefHeight="60.0" prefWidth="245.0" text="게 시 글 목 록" textFill="#e07c19">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Label contentDisplay="CENTER" layoutX="95.0" layoutY="148.0" prefHeight="48.0" prefWidth="90.0" text="제        목" textAlignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfTitle" layoutX="222.0" layoutY="156.0" prefHeight="40.0" prefWidth="613.0" />
+      <TextField fx:id="taContent" layoutX="95.0" layoutY="294.0" prefHeight="207.0" prefWidth="741.0" />
+      <Label contentDisplay="CENTER" layoutX="95.0" layoutY="214.0" prefHeight="48.0" prefWidth="90.0" text="글  쓴  이" textAlignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfWriter" layoutX="222.0" layoutY="218.0" prefHeight="40.0" prefWidth="613.0" />
+   </children>
+</AnchorPane>
