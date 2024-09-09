@@ -1,10 +1,9 @@
-module T5Board {
+module 게시판 {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires javafx.base;
 	requires lombok;
 	requires java.sql;
-	requires javafx.graphics;
 	
 	
 	opens application to javafx.base, javafx.graphics, javafx.fxml, lombok, java.sql;

@@ -10,14 +10,10 @@ import application.Service.BoardServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 public class ListController {
 
@@ -34,7 +30,7 @@ public class ListController {
     private TableColumn<Board, String> colWriter;
     
     @FXML
-    private TableColumn<Board, String> colDate;
+    private TableColumn<Board, String> colRegDate;
 
     @FXML
     private TableColumn<Board, Integer> colView;
@@ -54,7 +50,7 @@ public class ListController {
     	colNo.setCellValueFactory( new PropertyValueFactory<>("No") );
     	colTitle.setCellValueFactory( new PropertyValueFactory<>("Title") );
     	colWriter.setCellValueFactory( new PropertyValueFactory<>("Writer") );
-    	colDate.setCellValueFactory( new PropertyValueFactory<>("RegDate") );
+    	colRegDate.setCellValueFactory( new PropertyValueFactory<>("RegDate") );
     	colView.setCellValueFactory( new PropertyValueFactory<>("View") );
     	// (코드 설명)
     	// * new PropertyValueFactory("게터이름")		: 값으로 들어갈 객체의 게터 이름을 지정
@@ -65,36 +61,6 @@ public class ListController {
     	// 테이블뷰에 데이터 추가하기
     	ObservableList<Board> list = FXCollections.observableArrayList(boardList);
     	boardTableView.setItems(list);
-    	
-    	boardTableView.setOnMouseClicked( new EventHandler<MouseEvent>() {
-    		
-    		@Override
-    		public void handle(MouseEvent event) {
-    			
-    			if( event.getClickCount() == 2 && boardTableView.getSelectionModel().getSelectedItem() != null ) {
-    				
-    				int boardNo = boardTableView.getSelectionModel().getSelectedItem().getNo();
-    				
-    				try {
-    					String fxml = "UI/Read";
-    					FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-    					Parent root = fxmlLoader.load();
-    					ReadController readController = (ReadController) fxmlLoader.getController();
-    					readController.passData(boardNo);
-    					Main.setRoot(root);
-    				} catch ( Exception e ) {
-    					System.err.println("List -> Read Error...");
-    				}
-    				
-    			}
-    		}
-    		
-    		
-    	});
-    	
-    	
-    	
-    	    	
     	
     }
 

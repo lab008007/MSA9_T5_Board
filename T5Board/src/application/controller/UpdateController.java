@@ -10,13 +10,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class CreateController {
+public class UpdateController {
 
     @FXML
-    private Button btnCreate;
+    private Button btnList;
 
     @FXML
-    private Button btnMain;
+    private Button btnUpdate;
 
     @FXML
     private TextField taContent;
@@ -27,26 +27,39 @@ public class CreateController {
     @FXML
     private TextField tfWriter;
     
-    @FXML
+    
     private BoardService boardService = new BoardServiceImpl();
+    
+    int boardNo;
     
     @FXML
     private BoardDAO boardDAO = new BoardDAO();
-
-    @FXML
-    void create(ActionEvent event) throws Exception {
-    	Board board = new Board(tfTitle.getText(), tfWriter.getText(), taContent.getText());
-    	int result = boardDAO.insert(board);
-    	if( result > 0 ) {
-    		System.out.println("insert data OK!");
-    		Main.setRoot("UI/List");
-    	}
-
-    }
+    
+    
 
     @FXML
     void toList(ActionEvent event) throws Exception {
     	Main.setRoot("UI/List");
     }
+
+    @FXML
+    void update(ActionEvent event) throws Exception {
+    	Board board = new Board(tfTitle.getText(), tfWriter.getText(), taContent.getText());
+    	int result = boardDAO.update(board);
+    	if( result > 0 ) {
+    		System.out.println("update data OK!");
+    		Main.setRoot("UI/List");
+    	}
+    }
+
+	public void passData(int boardNo) {
+		this.boardNo = boardNo;
+		Board board = boardService.select(boardNo);
+		tfTitle.setText(board.getTitle());
+		tfWriter.setText(board.getWriter());
+		taContent.setText(board.getContent());
+		
+	}
+    
 
 }

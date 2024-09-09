@@ -34,7 +34,7 @@ public class CreateController {
     private BoardDAO boardDAO = new BoardDAO();
 
     @FXML
-    void create(ActionEvent event) throws Exception {
+    void toCreate(ActionEvent event) throws Exception {
     	Board board = new Board(tfTitle.getText(), tfWriter.getText(), taContent.getText());
     	int result = boardDAO.insert(board);
     	if( result > 0 ) {
